@@ -1,5 +1,6 @@
 package com.sinchan.webautomation;
 
+import org.camunda.bpm.spring.boot.starter.annotation.EnableProcessApplication;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,6 +13,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @PropertySource("classpath:application.properties")
 @EnableJpaRepositories(basePackages = "com.sinchan.webautomation")
 @EnableAutoConfiguration
+@EnableProcessApplication
 public class WebAutomationApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {

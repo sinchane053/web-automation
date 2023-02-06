@@ -21,6 +21,11 @@ public class City {
     @Column
     private int population;
 
+    //default constructor
+    public City(){
+        super();
+
+    }
     public City(int id, String name, String countryCode, String district, int population) {
         this.id = id;
         this.name = name;
