@@ -13,7 +13,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @PropertySource("classpath:application.properties")
 @EnableJpaRepositories(basePackages = "com.sinchan.webautomation")
 @EnableAutoConfiguration
-@EnableProcessApplication
+@EnableProcessApplication(value = "test-wf-engine")
 public class WebAutomationApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
