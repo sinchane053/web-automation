@@ -1,7 +1,12 @@
+/*
 package com.sinchan.webautomation.configuration;
 
+import org.camunda.bpm.engine.*;
 import org.camunda.bpm.engine.impl.persistence.StrongUuidGenerator;
+import org.camunda.bpm.engine.spring.ProcessEngineFactoryBean;
 import org.camunda.bpm.engine.spring.SpringProcessEngineConfiguration;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -23,11 +28,12 @@ public class CamundaConfig {
         JndiDataSourceLookup dsLookUp = new JndiDataSourceLookup();
         return dsLookUp.getDataSource("java:comp/env/jdbc/testDb");
     }
-   /* @Bean(name = "localdatasource")
+ @Bean(name = "localdatasource")
     @ConfigurationProperties("spring.datasource")
     public DataSource dataSource() {
         return DataSourceBuilder.create().build();
-    }*/
+    }
+
     @Bean
     public PlatformTransactionManager transactionManager() {
         return new DataSourceTransactionManager(getJndiDataSource());
@@ -54,14 +60,14 @@ public class CamundaConfig {
     }
 
 
-   /* @Bean
+    @Bean
     public ProcessEngineFactoryBean processEngine() {
         ProcessEngineFactoryBean factoryBean = new ProcessEngineFactoryBean();
         factoryBean.setProcessEngineConfiguration(processEngineConfiguration());
         return factoryBean;
-    }*/
+    }
 
-/*    @Bean
+    @Bean
     public RepositoryService repositoryService(ProcessEngine processEngine) {
         return processEngine.getRepositoryService();
     }
@@ -80,5 +86,6 @@ public class CamundaConfig {
     public HistoryService historyService(ProcessEngine processEngine) {
 
         return processEngine.getHistoryService();
-    }*/
+    }
 }
+*/
