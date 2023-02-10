@@ -64,45 +64,22 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.camunda.bpm.springboot</groupId>
-            <artifactId>camunda-bpm-spring-boot-starter-webapp</artifactId>
-            <version>${camunda.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.camunda.bpm.springboot</groupId>
-            <artifactId>camunda-bpm-spring-boot-starter-rest</artifactId>
-            <version>${camunda.version}</version>
+            <groupId>org.camunda.bpm</groupId>
+            <artifactId>camunda-engine</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.camunda.bpm</groupId>
-            <artifactId>camunda-engine</artifactId>
+            <artifactId>camunda-engine-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.camunda.bpm</groupId>
+            <artifactId>camunda-engine-plugin-spin</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
-    <profiles>
-        <profile>
-            <id>server</id>
-            <dependencies>
-                <dependency>
-                    <groupId>org.camunda.bpm.springboot</groupId>
-                    <artifactId>camunda-bpm-spring-boot-starter-webapp</artifactId>
-                    <version>${camunda.version}</version>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.camunda.bpm.springboot</groupId>
-                    <artifactId>camunda-bpm-spring-boot-starter-rest</artifactId>
-                    <version>${camunda.version}</version>
-                    <scope>provided</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.camunda.bpm</groupId>
-                    <artifactId>camunda-engine</artifactId>
-                    <scope>provided</scope>
-                </dependency>
-            </dependencies>
-        </profile>
-    </profiles>
+
 
     <!--<repositories>
         <repository>
@@ -118,7 +95,7 @@
     </repositories>
 -->
     <build>
-        <finalName>web-automation.${artifactId}</finalName>
+        <finalName>web-automation</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>

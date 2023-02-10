@@ -19,7 +19,6 @@ import org.springframework.jdbc.datasource.lookup.JndiDataSourceLookup;
 import javax.sql.DataSource;
 
 @Configuration
-@Profile("server")
 public class ApplicationConfig {
 
     //comment out the jndi part when using embedded tomcat
@@ -56,10 +55,10 @@ public class ApplicationConfig {
         return BpmPlatform.getDefaultProcessEngine();
     }
 
-    /*@Bean
+    @Bean
     public SpringProcessApplication processApplication() {
         return new SpringProcessApplication();
-    }*/
+    }
 
     @Bean
     public RepositoryService repositoryService(ProcessEngine processEngine) {
