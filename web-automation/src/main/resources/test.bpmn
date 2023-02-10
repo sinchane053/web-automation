@@ -8,10 +8,10 @@
     <bpmn:sequenceFlow id="Flow_1s2q9ll" sourceRef="StartEvent_1" targetRef="Activity_1vp93dy" />
     <bpmn:sequenceFlow id="Flow_07xk8ik" sourceRef="Activity_0xjrybv" targetRef="Event_0gmv2xj" />
     <bpmn:serviceTask id="Activity_0xjrybv" name="End Delegate&#10;" camunda:class="com.sinchan.webautomation.delegates.EndDelegate">
-      <bpmn:incoming>Flow_0018vs0</bpmn:incoming>
+      <bpmn:incoming>Flow_1pdq6ok</bpmn:incoming>
       <bpmn:outgoing>Flow_07xk8ik</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:sequenceFlow id="Flow_0018vs0" sourceRef="Activity_1vp93dy" targetRef="Activity_0xjrybv" />
+    <bpmn:sequenceFlow id="Flow_0018vs0" sourceRef="Activity_1vp93dy" targetRef="Event_1874tpi" />
     <bpmn:startEvent id="StartEvent_1">
       <bpmn:outgoing>Flow_1s2q9ll</bpmn:outgoing>
     </bpmn:startEvent>
@@ -22,6 +22,14 @@
     <bpmn:endEvent id="Event_0gmv2xj">
       <bpmn:incoming>Flow_07xk8ik</bpmn:incoming>
     </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1pdq6ok" sourceRef="Event_1874tpi" targetRef="Activity_0xjrybv" />
+    <bpmn:intermediateCatchEvent id="Event_1874tpi" camunda:asyncAfter="true" camunda:exclusive="false">
+      <bpmn:incoming>Flow_0018vs0</bpmn:incoming>
+      <bpmn:outgoing>Flow_1pdq6ok</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_12r9o8f">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT2M</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:intermediateCatchEvent>
     <bpmn:textAnnotation id="TextAnnotation_1z0h6rs">
       <bpmn:text>sets isEnd flag true before endig</bpmn:text>
     </bpmn:textAnnotation>
@@ -33,7 +41,7 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0018vs0_di" bpmnElement="Flow_0018vs0">
         <di:waypoint x="440" y="220" />
-        <di:waypoint x="640" y="220" />
+        <di:waypoint x="502" y="220" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_07xk8ik_di" bpmnElement="Flow_07xk8ik">
         <di:waypoint x="740" y="220" />
@@ -42,6 +50,10 @@
       <bpmndi:BPMNEdge id="Flow_1s2q9ll_di" bpmnElement="Flow_1s2q9ll">
         <di:waypoint x="258" y="220" />
         <di:waypoint x="340" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1pdq6ok_di" bpmnElement="Flow_1pdq6ok">
+        <di:waypoint x="538" y="220" />
+        <di:waypoint x="640" y="220" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Activity_0xjrybv_di" bpmnElement="Activity_0xjrybv">
         <dc:Bounds x="640" y="180" width="100" height="80" />
@@ -52,11 +64,14 @@
       <bpmndi:BPMNShape id="Activity_1dbxfct_di" bpmnElement="Activity_1vp93dy">
         <dc:Bounds x="340" y="180" width="100" height="80" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0gmv2xj_di" bpmnElement="Event_0gmv2xj">
+        <dc:Bounds x="882" y="202" width="36" height="36" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_1z0h6rs_di" bpmnElement="TextAnnotation_1z0h6rs">
         <dc:Bounds x="590" y="120" width="100" height="32" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0gmv2xj_di" bpmnElement="Event_0gmv2xj">
-        <dc:Bounds x="882" y="202" width="36" height="36" />
+      <bpmndi:BPMNShape id="Event_1r03zbf_di" bpmnElement="Event_1874tpi">
+        <dc:Bounds x="502" y="202" width="36" height="36" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
