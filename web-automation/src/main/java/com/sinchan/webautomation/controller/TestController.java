@@ -4,7 +4,7 @@ import com.sinchan.webautomation.delegates.StartDelegate;
 import com.sinchan.webautomation.email.EmailSender;
 import com.sinchan.webautomation.entities.City;
 import com.sinchan.webautomation.reports.ReportGenerationService;
-import com.sinchan.webautomation.repositories.CamundaDaoImpl;
+
 import com.sinchan.webautomation.services.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,8 +32,7 @@ public class TestController {
     @Autowired
     ReportGenerationService reportService;
 
-    @Autowired
-    CamundaDaoImpl camundaDaoImpl;
+
 
     @Autowired
     EmailSender emailSender;
@@ -56,9 +55,9 @@ public class TestController {
 
 
 //    @Scheduled(fixedRate = 3000)
-    public String automateEmailSender() throws MessagingException {
-        String msg = sendEmail();
-        return msg;
+    @PostMapping(value = "/sendEmailTest")
+    public void automateEmailSender() throws MessagingException {
+        emailSender.sendEmailWithButton();
     }
 
     @PostMapping(value = "/sendEmail")
@@ -81,9 +80,9 @@ public class TestController {
         reportService.generateTextReport();
         return  "Printing done";
     }
-    @GetMapping(value = "/getAllIncidents")
-    public List<String> getIncidents() throws NoSuchAlgorithmException, KeyStoreException, IOException, KeyManagementException {
-        return camundaDaoImpl.getIncident();
-    }
+//    @GetMapping(value = "/getAllIncidents")
+//    public List<String> getIncidents() throws NoSuchAlgorithmException, KeyStoreException, IOException, KeyManagementException {
+//        return camundaDaoImpl.getIncident();
+//    }
 
 }

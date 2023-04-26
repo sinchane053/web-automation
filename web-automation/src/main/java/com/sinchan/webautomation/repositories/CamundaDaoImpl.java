@@ -1,3 +1,4 @@
+/*
 package com.sinchan.webautomation.repositories;
 
 
@@ -21,7 +22,7 @@ public class CamundaDaoImpl {
 
     public List<String> getIncident(){
 
-        List<Object> ls =  (List<Object>)em.createNativeQuery(GET_ALL_INCIDENT).getResultList();
+        List<Object> ls =  (List<Object>)em.createNativeQuery(GET_ALL_INCIDENT).getResultList());
         List<String> ans = new ArrayList<>();
         ls.forEach(obj ->{
             ans.add(obj.;
@@ -29,3 +30,4 @@ public class CamundaDaoImpl {
         return ans;
     }
 }
+*/
